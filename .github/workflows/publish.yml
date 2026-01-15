@@ -1,0 +1,28 @@
+name: Publish release branch to public repo
+
+on:
+  push:
+    branches: ["release"]
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release
+        uses: actions/checkout@v4
+        with:
+          ref: release
+          fetch-depth: 0
+
+      - name: Configure git identity
+        run: |
+          git config user.name "solutions-publisher-bot"
+          git config user.email "solutions-publisher-bot@users.noreply.github.com"
+
+      - name: Add public remote
+        run: |
+          git remote add public https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/UCI-Stats230-2026/stats230-r-package-example.git
+      - name: Push to public main
+        run: |
+          git push public release:main
