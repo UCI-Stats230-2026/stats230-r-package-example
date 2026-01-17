@@ -1,11 +1,26 @@
-Package: stats230Rpackagetemplate
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Package: STATS230
+Title: Functions for Statistical Computing Methods
+Version: 0.1.0
+Authors@R:
+  c(person(given = "Volodymyr",
+           family = "Minin",
+           role = c("aut", "cre"),
+           email = "vminin@uci.edu"),
+    person(given = "Jessalyn",
+           family = "Sebastian",
+           role = "aut",
+           email = "jessalys@uci.edu"))
+Description: This package contains a variety of functions that implement statistical computing algorithms, along with associated vignettes demonstrating their use. Each vignette is associated with one homework assignment from UCI's STATS 230.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Depends:
+    stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    ggplot2,
+    bench,
+    kableExtra
+VignetteBuilder: knitr
