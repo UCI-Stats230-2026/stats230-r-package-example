@@ -1,3 +1,13 @@
+#  STATS230 0.2.0 (Homework 2)
+
+## New Features
+- Added function [`rmvnorm`](R/homework2.R) to generate random samples from the multivariate normal distribution.
+- Added function [`dmvnorm`](R/homework2.R) to compute the density of the multivariate normal distribution using either Cholesky or Eigen decomposition methods.
+- Added function [`my_lm`](R/homework2.R) to fit ordinary least squares regression models using Cholesky, QR, or SVD matrix decomposition methods.
+
+## Documentation
+- Added [vignette](vignettes/homework2.Rmd) demonstrating the usage of `rmvnorm`, `dmvnorm`, and `my_lm`, along with benchmarking results comparing the computational efficiency of different methods for each function.
+
 # STATS230 0.1.0 (Homework 1)
 
 ## New Features
