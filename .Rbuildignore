@@ -1,0 +1,34 @@
+^LICENSE\.md$
+# RStudio project/user files
+^.*\.Rproj$
+^\.Rproj\.user$
+
+# Session and OS cruft
+^\.Rhistory$
+^\.RData$
+^\.DS_Store$
+
+# Readme sources and rendered assets
+^README\.Rmd$
+^README-.*\.png$
+
+# CI/config and repo-only files
+^\.github$
+^codecov\.yml$
+^\.pre-commit-config\.yaml$
+^\.lintr$
+^\.vscode$
+
+# pkgdown / site artifacts
+^_pkgdown\.yml$
+^pkgdown$
+^docs$
+
+# CRAN submission helpers
+^CRAN-RELEASE$
+^CRAN-SUBMISSION$
+^cran-comments\.md$
+
+# Reverse dependency checks and data build scripts
+^revdep$
+^data-raw$
