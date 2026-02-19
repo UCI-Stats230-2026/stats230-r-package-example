@@ -1,3 +1,11 @@
+#  STATS230 0.3.0 (Homework 3)
+
+## New Features
+- Added function [`fit_logistic`](R/homework3.R) which uses three different optimization methods (Newton-Raphson (`nr`), Gradient Descent (`gd`), and Stochastic Gradient descent (`sgd`)) to compute MLEs for logistic regression coefficients.
+
+## Documentation
+- Added [vignette](vignettes/homework3.Rmd) demonstrating the usage of `fit_logistic` and plotting/benchmarking convergence.
+
 #  STATS230 0.2.0 (Homework 2)
 
 ## New Features
