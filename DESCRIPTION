@@ -1,6 +1,6 @@
 Package: STATS230
 Title: Functions for Statistical Computing Methods
-Version: 0.1.0
+Version: 0.3.0
 Authors@R:
   c(person(given = "Volodymyr",
            family = "Minin",
