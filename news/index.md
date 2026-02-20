@@ -1,0 +1,69 @@
+# Changelog
+
+## STATS230 0.3.0 (Homework 3)
+
+### New Features
+
+- Added function
+  [`fit_logistic`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework3.R)
+  which uses three different optimization methods (Newton-Raphson
+  (`nr`), Gradient Descent (`gd`), and Stochastic Gradient descent
+  (`sgd`)) to compute MLEs for logistic regression coefficients.
+
+### Documentation
+
+- Added
+  [vignette](https://uci-stats230-2026.github.io/stats230-r-package-example/news/vignettes/homework3.Rmd)
+  demonstrating the usage of `fit_logistic` and plotting/benchmarking
+  convergence.
+
+## STATS230 0.2.0 (Homework 2)
+
+### New Features
+
+- Added function
+  [`rmvnorm`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework2.R)
+  to generate random samples from the multivariate normal distribution.
+- Added function
+  [`dmvnorm`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework2.R)
+  to compute the density of the multivariate normal distribution using
+  either Cholesky or Eigen decomposition methods.
+- Added function
+  [`my_lm`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework2.R)
+  to fit ordinary least squares regression models using Cholesky, QR, or
+  SVD matrix decomposition methods.
+
+### Documentation
+
+- Added
+  [vignette](https://uci-stats230-2026.github.io/stats230-r-package-example/news/vignettes/homework2.Rmd)
+  demonstrating the usage of `rmvnorm`, `dmvnorm`, and `my_lm`, along
+  with benchmarking results comparing the computational efficiency of
+  different methods for each function.
+
+## STATS230 0.1.0 (Homework 1)
+
+### New Features
+
+- Added function
+  [`mult_ABx`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework1.R),
+  which multiplies two square matrices and a vector. It has the option
+  of using a more efficient method (A(Bx)) or a less efficient method
+  ((AB)x).
+- Added function
+  [`mult_Ainv_c`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework1.R),
+  which computes the product of the inverse of a square matrix and a
+  vector. It has the option of using a more efficient method (solve(A,
+  c)) or a less efficient method (solve(A) %\*% c).
+
+### Documentation
+
+- Added
+  [vignette](https://uci-stats230-2026.github.io/stats230-r-package-example/news/vignettes/homework1.Rmd)
+  walking through the usage of `mult_ABx` and `mult_Ainv_c`, and
+  comparing computational efficiency of two methods for each.
+
+### Contributors
+
+- @vminin
+- @jessalynnsebastian
