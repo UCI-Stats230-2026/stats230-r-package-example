@@ -31,3 +31,4 @@ jobs:
       - name: Push to public main (force push)
         run: |
           git push public release:main --force
+          git push public --tags
