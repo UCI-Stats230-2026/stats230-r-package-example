@@ -24,3 +24,4 @@ Suggests:
     bench,
     kableExtra
 VignetteBuilder: knitr
+URL: https://uci-stats230-2026.github.io/stats230-r-package-example/
