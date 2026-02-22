@@ -7,7 +7,7 @@ STATS 230.
 
 To install this package, do:
 
-`{r} devtools::install_github("UCI-Stats230-2025/stats230-r-package-example")`
+`{r} devtools::install_github("UCI-Stats230-2026/stats230-r-package-example")`
 
 You should then be able to load the package with a call to `library`.
 
