@@ -4,29 +4,27 @@ template:
   bootswatch: yeti
 navbar:
   structure:
-    - icon: "fab fa-github"
+    left: [reference, news, articles]
+    right: [github]
+  components:
+    github:
+      icon: "fab fa-github"
       href: "https://github.com/UCI-Stats230-2026/stats230-r-package-example"
-index:
-  order:
-    - Homework 4
-    - Homework 3
-    - Homework 2
-    - Homework 1
-  headers:
-    Homework 4: "EM and HMMs"
-    Homework 3: "Optimization"
-    Homework 2: "Matrix Decomposition"
-    Homework 1: "Matrix/Vector Operations"
 reference:
-  Homework 4:
-    - em_mixture_normals
-    - occasionally_dishonest_casino
-  Homework 3:
-    - fit_logistic
-  Homework 2:
-    - rmvnorm
-    - dmvnorm
-    - my_lm
-  Homework 1:
-    - mult_Ainv_c
-    - mult_Abx
+  - title: Homework 4, EM and HMMs
+    contents:
+      - em_mixture_normals
+      - forward_backward_casino
+      - occasionally_dishonest_casino
+  - title: Homework 3, Optimization
+    contents:
+      - fit_logistic
+  - title: Homework 2, Matrix Decomposition
+    contents:
+      - rmvnorm
+      - dmvnorm
+      - my_lm
+  - title: Homework 1, Matrix/Vector Operations
+    contents:
+      - mult_Ainv_c
+      - mult_ABx
