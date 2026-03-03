@@ -1,6 +1,6 @@
 Package: STATS230
 Title: Functions for Statistical Computing Methods
-Version: 0.3.0
+Version: 0.4.0
 Authors@R:
   c(person(given = "Volodymyr",
            family = "Minin",
@@ -22,6 +22,7 @@ Suggests:
     rmarkdown,
     ggplot2,
     bench,
-    kableExtra
+    kableExtra,
+    reshape2
 VignetteBuilder: knitr
 URL: https://uci-stats230-2026.github.io/stats230-r-package-example/
