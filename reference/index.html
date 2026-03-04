@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">STATS230</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,15 +16,15 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/homework1.html">Homework 1: Benchmarking Methods of Matrix/Vector Multiplication</a></li>
     <li><a class="dropdown-item" href="../articles/homework2.html">Homework 2: Matrix Decomposition</a></li>
     <li><a class="dropdown-item" href="../articles/homework3.html">Homework 3: Optimization Methods for Logistic Regression</a></li>
+    <li><a class="dropdown-item" href="../articles/homework4.html">Homework 4: EM and HMMs</a></li>
   </ul></li>
-<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://github.com/UCI-Stats230-2026/stats230-r-package-example"><span class="fa fab fa-github"></span></a></li>
       </ul></div>
 
 
@@ -37,7 +37,7 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="homework-em-and-hmms">Homework 4, EM and HMMs<a class="anchor" aria-label="anchor" href="#homework-em-and-hmms"></a></h2>
 
 
 
@@ -48,6 +48,59 @@
 
       <dl><dt>
 
+          <code><a href="em_mixture_normals.html">em_mixture_normals()</a></code>
+
+        </dt>
+        <dd>Parameter Estimates for Mixture of Two Normal Distributions via EM Algorithm</dd>
+
+        <dt>
+
+          <code><a href="forward_backward_casino.html">forward_backward_casino()</a></code>
+
+        </dt>
+        <dd>Forward-Backward Algorithm for the Occasionally Dishonest Casino HMM</dd>
+
+        <dt>
+
+          <code><a href="occasionally_dishonest_casino.html">occasionally_dishonest_casino()</a></code>
+
+        </dt>
+        <dd>Simulate the Occasionally Dishonest Casino Hidden Markov Model</dd>
+      </dl></div><div class="section level2">
+      <h2 id="homework-optimization">Homework 3, Optimization<a class="anchor" aria-label="anchor" href="#homework-optimization"></a></h2>
+
+
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="fit_logistic.html">fit_logistic()</a></code>
+
+        </dt>
+        <dd>Fit Logistic Regression with Multiple Optimization Methods</dd>
+      </dl></div><div class="section level2">
+      <h2 id="homework-matrix-decomposition">Homework 2, Matrix Decomposition<a class="anchor" aria-label="anchor" href="#homework-matrix-decomposition"></a></h2>
+
+
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="rmvnorm.html">rmvnorm()</a></code>
+
+        </dt>
+        <dd>Simulate realizations from a multivariate normal distribution using Cholesky decomposition</dd>
+
+        <dt>
+
           <code><a href="dmvnorm.html">dmvnorm()</a></code>
 
         </dt>
@@ -55,19 +108,21 @@
 
         <dt>
 
-          <code><a href="fit_logistic.html">fit_logistic()</a></code>
+          <code><a href="my_lm.html">my_lm()</a></code>
 
         </dt>
-        <dd>Fit Logistic Regression with Multiple Optimization Methods</dd>
+        <dd>Use Cholesky decomposition, QR decomposition, or Singular Value Decomposition to get OLS estimates</dd>
+      </dl></div><div class="section level2">
+      <h2 id="homework-matrix-vector-operations">Homework 1, Matrix/Vector Operations<a class="anchor" aria-label="anchor" href="#homework-matrix-vector-operations"></a></h2>
 
-        <dt>
 
-          <code><a href="mult_ABx.html">mult_ABx()</a></code>
 
-        </dt>
-        <dd>Multiply two square matrices and a vector</dd>
+      <dl></dl></div><div class="section level2">
 
-        <dt>
+
+
+
+      <dl><dt>
 
           <code><a href="mult_Ainv_c.html">mult_Ainv_c()</a></code>
 
@@ -76,19 +131,13 @@
 
         <dt>
 
-          <code><a href="my_lm.html">my_lm()</a></code>
+          <code><a href="mult_ABx.html">mult_ABx()</a></code>
 
         </dt>
-        <dd>Use Cholesky decomposition, QR decomposition, or Singular Value Decomposition to get OLS estimates</dd>
-
-        <dt>
-
-          <code><a href="rmvnorm.html">rmvnorm()</a></code>
-
-        </dt>
-        <dd>Simulate realizations from a multivariate normal distribution using Cholesky decomposition</dd>
+        <dd>Multiply two square matrices and a vector</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

@@ -1,5 +1,33 @@
 # Changelog
 
+## STATS230 0.4.0 (Homework 4)
+
+### New Features
+
+- Added function
+  [`em_mixture_normals`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework4.R)
+  which uses an expectation-maximization (EM) algorithm to estimate MLEs
+  for parameters of a mixture of two normal distributions given some
+  observations.
+- Added function
+  [`occasionally_dishonest_casino`](https://uci-stats230-2026.github.io/stats230-r-package-example/news/R/homework4.R)
+  which simulates a hidden Markov model (HMM) in which we observe the
+  rolls of one of two dice: a loaded die, and a fair die, but we do not
+  know which one is being used when. The function returns the hidden
+  state of the die, the observed rolls, and the result of running the
+  forward and backward algorithm on the observed rolls to estimate
+  probabilities of the hidden state at each time.
+
+### Documentation
+
+- Added
+  [vignette](https://uci-stats230-2026.github.io/stats230-r-package-example/news/vignettes/homework4.Rmd)
+  in which there are two parts: in the first, the EM update formulas are
+  derived and the implementation in `em_mixture_normals` is tested, and
+  in the second, an HMM is simulated and the forward and backward
+  algorithms are used to estimate marginal probabilities of the hidden
+  state.
+
 ## STATS230 0.3.0 (Homework 3)
 
 ### New Features

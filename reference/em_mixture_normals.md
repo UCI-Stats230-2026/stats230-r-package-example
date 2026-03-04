@@ -1,0 +1,110 @@
+# Parameter Estimates for Mixture of Two Normal Distributions via EM Algorithm
+
+This function estimates the parameters of a two-component Gaussian
+mixture model using the Expectation-Maximization (EM) algorithm. The
+model assumes that observations come from a mixture of two normal
+distributions with known, fixed standard deviations but unknown means
+and mixing proportion.
+
+## Usage
+
+``` r
+em_mixture_normals(
+  y,
+  alpha_init = 0.5,
+  mu1_init = quantile(y, probs = 0.25),
+  mu2_init = quantile(y, probs = 0.75),
+  max_iter = 200,
+  tol = 1e-10,
+  sigma1 = 1,
+  sigma2 = 0.8
+)
+```
+
+## Arguments
+
+- y:
+
+  A numeric vector of observations from which the mixture model will be
+  estimated. Must contain at least 2 observations.
+
+- alpha_init:
+
+  Numeric scalar between 0 and 1. Initial value for the mixing
+  proportion of the first component. Default is 0.5 (equal mixture).
+
+- mu1_init:
+
+  Numeric scalar. Initial value for the mean of the first normal
+  component. Default is the 25th percentile of `y`.
+
+- mu2_init:
+
+  Numeric scalar. Initial value for the mean of the second normal
+  component. Default is the 75th percentile of `y`.
+
+- max_iter:
+
+  Positive integer. Maximum number of EM iterations to perform. Default
+  is 200.
+
+- tol:
+
+  Positive numeric. Convergence tolerance based on parameter changes.
+  The algorithm stops when the maximum absolute change in parameters
+  (alpha, mu1, mu2) is less than `tol`. Default is 1e-8.
+
+- sigma1:
+
+  Positive numeric. Fixed standard deviation of the first normal
+  component. Default is 1.0.
+
+- sigma2:
+
+  Positive numeric. Fixed standard deviation of the second normal
+  component. Default is 0.8.
+
+## Value
+
+A list containing the following components:
+
+- alpha:
+
+  Estimated mixing proportion for the first component (between 0 and 1).
+
+- mu1:
+
+  Estimated mean of the first normal component.
+
+- mu2:
+
+  Estimated mean of the second normal component.
+
+- loglik:
+
+  Numeric vector of observed-data log-likelihood values at each
+  iteration.
+
+- converged:
+
+  Logical indicating whether the algorithm converged within `max_iter`
+  iterations.
+
+- iterations:
+
+  Integer number of iterations performed.
+
+## Details
+
+The EM algorithm iteratively performs two steps:
+
+- **E-step**: Computes the posterior probability (responsibility) that
+  each observation belongs to the first component, given current
+  parameter estimates.
+
+- **M-step**: Updates the mixing proportion and component means by
+  maximizing the expected complete-data log-likelihood.
+
+The standard deviations (`sigma1` and `sigma2`) are held fixed
+throughout the algorithm. Convergence is assessed based on the maximum
+absolute change in parameters between successive iterations.

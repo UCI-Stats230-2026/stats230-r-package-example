@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">STATS230</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,15 +16,15 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/homework1.html">Homework 1: Benchmarking Methods of Matrix/Vector Multiplication</a></li>
     <li><a class="dropdown-item" href="../articles/homework2.html">Homework 2: Matrix Decomposition</a></li>
     <li><a class="dropdown-item" href="../articles/homework3.html">Homework 3: Optimization Methods for Logistic Regression</a></li>
+    <li><a class="dropdown-item" href="../articles/homework4.html">Homework 4: EM and HMMs</a></li>
   </ul></li>
-<li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://github.com/UCI-Stats230-2026/stats230-r-package-example"><span class="fa fab fa-github"></span></a></li>
       </ul></div>
 
 
@@ -37,6 +37,18 @@
 
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="stats230-040-homework-4">STATS230 0.4.0 (Homework 4)<a class="anchor" aria-label="anchor" href="#stats230-040-homework-4"></a></h2>
+<div class="section level3">
+<h3 id="new-features-0-4-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-4-0"></a></h3>
+<ul><li>Added function <a href="R/homework4.R"><code>em_mixture_normals</code></a> which uses an expectation-maximization (EM) algorithm to estimate MLEs for parameters of a mixture of two normal distributions given some observations.</li>
+<li>Added function <a href="R/homework4.R"><code>occasionally_dishonest_casino</code></a> which simulates a hidden Markov model (HMM) in which we observe the rolls of one of two dice: a loaded die, and a fair die, but we do not know which one is being used when. The function returns the hidden state of the die, the observed rolls, and the result of running the forward and backward algorithm on the observed rolls to estimate probabilities of the hidden state at each time.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="documentation-0-4-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-4-0"></a></h3>
+<ul><li>Added <a href="vignettes/homework4.Rmd">vignette</a> in which there are two parts: in the first, the EM update formulas are derived and the implementation in <code>em_mixture_normals</code> is tested, and in the second, an HMM is simulated and the forward and backward algorithms are used to estimate marginal probabilities of the hidden state.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="stats230-030-homework-3">STATS230 0.3.0 (Homework 3)<a class="anchor" aria-label="anchor" href="#stats230-030-homework-3"></a></h2>
 <div class="section level3">
