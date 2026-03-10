@@ -11,6 +11,10 @@ navbar:
       icon: "fab fa-github"
       href: "https://github.com/UCI-Stats230-2026/stats230-r-package-example"
 reference:
+  - title: Homework 5, Monte Carlo and Markov Chains
+    contents:
+      - montecarlo_moments
+      - wright_fisher_path
   - title: Homework 4, EM and HMMs
     contents:
       - em_mixture_normals

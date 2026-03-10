@@ -1,3 +1,12 @@
+# STATS230 0.5.0 (Homework 5)
+
+## New Features
+- Added function [`montecarlo_moments`](R/homework5.R) for estimating moments with either naive Monte Carlo or importance sampling, including Monte Carlo standard errors and confidence intervals.
+- Added function [`wright_fisher_path`](R/homework5.R) to simulate Wright-Fisher Markov chain paths with mutation.
+
+## Documentation
+- Added [vignette](vignettes/homework5.Rmd) covering Monte Carlo moment estimation and Wright-Fisher Markov chain analysis, including a derivation of the stationary mean and numerical verification.
+
 # STATS230 0.4.0 (Homework 4)
 
 ## New Features

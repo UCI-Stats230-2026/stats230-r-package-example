@@ -26,8 +26,6 @@ forward_backward_casino(
 \value{
 A list with:
 \describe{
-\item{alpha}{T x 2 matrix of forward messages. Row t is alpha_t(1:2).}
-\item{beta}{T x 2 matrix of backward messages. Row t is beta_t(1:2).}
 \item{gamma}{T x 2 matrix of smoothed state probabilities P(x_t=i | y_\{1:T\}).}
 \item{P}{2 x 2 transition matrix used.}
 \item{E}{2 x 6 emission matrix used (rows=states, cols=roll outcomes 1..6).}

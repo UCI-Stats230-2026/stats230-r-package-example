@@ -1,0 +1,198 @@
+---
+title: "Homework 5: Monte Carlo and Markov Chains"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Homework 5: Monte Carlo and Markov Chains}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{ggplot2}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  fig.width = 8,
+  collapse = TRUE,
+  rmarkdown.html_vignette.check_title = FALSE,
+  comment = "#>"
+)
+```
+
+
+```{r packages}
+library(STATS230)
+library(ggplot2)
+```
+
+
+## Monte Carlo Estimation
+
+When the distribution of interest is complicated, we can use Monte Carlo methods to estimate moments. The `montecarlo_moments()` function estimates the $k$-th moment of a distribution using either naive Monte Carlo or importance sampling.
+Naive Monte Carlo estimation involves drawing samples directly from the target distribution and computing the sample average of $X^k$.
+Importance sampling, on the other hand, involves drawing samples from a proposal distribution and weighting them by the ratio of the target density to the proposal density. The `montecarlo_moments()` function allows you to specify both the target distribution and the proposal distribution, as well as the number of samples to draw.
+
+Below, we compare the estimates of the second moment of a Gamma distribution using both methods. The target distribution is a Gamma distribution with shape 4 and rate 2, so the second moment is $E[X^2] = \frac{\alpha(\alpha + 1)}{\beta^2} = \frac{4 \cdot 5}{2^2} = 5$.
+Using naive Monte Carlo:
+```{r naive}
+montecarlo_moments(type = "naive", moment = 2)
+```
+
+we obtain an estimate close to 5, the true second moment.
+
+For importance sampling, one thing we should consider is the choice of proposal distribution.
+Though the homework asks us to use log-normal, we need to choose the parameters of the log-normal distribution carefully to ideally give it heavier tails than the target distribution.
+The success of the importance sampling estimator depends on the instrument distribution having at least a very similar support to the target distribution, and ideally heavier tails, to decrease variance of the estimator.
+
+Here, we can try to match the moments of the target distribution to those of the proposal, which is a fairly standard approach..
+The mean of the target distribution is $\frac{\alpha}{\beta} = \frac{4}{2} = 2$, and the variance is $\frac{\alpha}{\beta^2} = \frac{4}{4} = 1$.
+We can try to choose parameters for the log-normal distribution such that the mean is around 2 and the variance is around 1, or slightly larger to give it heavier tails.
+Here, we can set the meanlog to $\log(2) - \log(1.25)^2 / 2$ and the sdlog to $\log(1.25)$.
+
+Comparing the two densities,
+```{r densities}
+x <- seq(0, 10, length.out = 1000)
+
+dens_df <- data.frame(
+  x = rep(x, 2),
+  density = c(
+    dgamma(x, shape = 4, rate = 2),
+    dlnorm(x, meanlog = log(2) - log(1.25)^2 / 2, sdlog = log(1.25))
+  ),
+  dist = factor(
+    rep(c("Target", "Proposal"), each = length(x)),
+    levels = c("Target", "Proposal")
+  )
+)
+
+ggplot(dens_df, aes(x = x, y = density, color = dist)) +
+  geom_line(linewidth = 1.1) +
+  scale_color_manual(values = c("Target" = "blue", "Proposal" = "red")) +
+  labs(x = "x", y = "Density", color = NULL) +
+  theme_minimal()
+```
+
+We can see that this might not be a great choice for the proposal distribution. Let's test it, anyway.
+Using importance sampling with this proposal distribution:
+
+```{r importance}
+montecarlo_moments(type = "importance", moment = 2)
+```
+
+Notice that the Monte Carlo error for the importance sampling estimator is much larger than that of the naive Monte Carlo estimator.
+This is not inherently a property of importance sampling, rather it's about the choice of proposal distribution.
+As we saw above, the proposal distribution has areas of extremely low density where the target distribution has non-negligible density, which leads to very large importance weights and thus high variance in the estimator.
+We can mess with the parameters a little bit to try to get a better proposal:
+
+```{r densities2}
+x <- seq(0, 10, length.out = 1000)
+
+dens_df <- data.frame(
+  x = rep(x, 2),
+  density = c(
+    dgamma(x, shape = 4, rate = 2),
+    dlnorm(x, meanlog = log(4) - 1^2 / 2, sdlog = 1)
+  ),
+  dist = factor(
+    rep(c("Target", "Proposal"), each = length(x)),
+    levels = c("Target", "Proposal")
+  )
+)
+
+ggplot(dens_df, aes(x = x, y = density, color = dist)) +
+  geom_line(linewidth = 1.1) +
+  scale_color_manual(values = c("Target" = "blue", "Proposal" = "red")) +
+  labs(x = "x", y = "Density", color = NULL) +
+  theme_minimal()
+```
+
+And trying again with these new parameters,
+
+```{r importance2}
+montecarlo_moments(
+  type = "importance",
+  moment = 2,
+  instrument_distribution = list(sampler = function(n) rlnorm(n, meanlog = log(4) - 1^2 / 2, sdlog = 1),
+                                 density = function(x) dlnorm(x, meanlog = log(4) - 1^2 / 2, sdlog = 1))
+)
+```
+
+we get an estimator with smaller variance than the naive Monte Carlo estimator.
+
+## Wright-Fisher Markov Chain
+
+We want to show
+\[
+\mu \equiv \sum_{i=0}^{2m} i\pi_i = \frac{2mu}{u+v}.
+\]
+Let \(x = (0,1,2,\dots,2m)^T\). Since \(\pi\) is stationary,
+\[
+\mu = \pi^T x = \pi^T P x,
+\]
+where \(P\) is the transition matrix.
+
+For state \(i\),
+\[
+(Px)_i = \sum_{j=0}^{2m} j\,P_{ij}.
+\]
+Here,
+\[
+P_{ij}
+= \binom{2m}{j}
+\left(\frac{i(1-v)+(2m-i)u}{2m}\right)^j
+\left(1-\frac{i(1-v)+(2m-i)u}{2m}\right)^{2m-j},
+\]
+so \(P_{ij}\) is Binomial\((2m,p_i)\) with
+\[
+p_i=\frac{i(1-v)+(2m-i)u}{2m}.
+\]
+Therefore,
+\[
+(Px)_i = \mathbb{E}[J\mid i] = 2m\,p_i = i(1-v)+(2m-i)u.
+\]
+
+Now compute:
+\[
+\mu
+= \pi^T P x
+= \sum_{i=0}^{2m}\pi_i (Px)_i
+= \sum_{i=0}^{2m}\pi_i\big(i(1-v)+(2m-i)u\big).
+\]
+So
+\[
+\mu
+= (1-v)\sum_{i=0}^{2m} i\pi_i
+  + u\sum_{i=0}^{2m}(2m-i)\pi_i
+= (1-v)\mu + u(2m-\mu).
+\]
+Hence
+\[
+\mu = \mu + 2mu - (u+v)\mu
+\quad\Longrightarrow\quad
+(u+v)\mu = 2mu
+\quad\Longrightarrow\quad
+\mu = \frac{2mu}{u+v}.
+\]
+
+Next, we confirm this numerically using the function `wright_fisher_path()`, which simulates a path of the Wright-Fisher Markov chain and returns the states visited.
+We can simulate a long path and compute the empirical mean of the states visited, which should be close to the theoretical mean we derived above.
+If we set \(m=50\), \(u=0.35\), and \(v=0.5\), then the theoretical mean is \(\frac{2 \cdot 50 \cdot 0.35}{0.35 + 0.5} = \frac{35}{0.85} \approx 41.18\).
+```{r wright-fisher}
+set.seed(123)
+m <- 50
+u <- 0.35
+v <- 0.5
+N <- 2 * m
+
+path <- wright_fisher_path(n_steps = 10000, x0 = 0, N = N, u = u, v = v)
+plot(path, type = "l", xlab = "Step", ylab = "State")
+
+theoretical_mean <- N * u / (u + v)
+full_mean <- mean(path)
+burn_in <- 2000
+post_burn_in_mean <- mean(path[(burn_in + 1):length(path)])
+
+c(
+  theoretical = theoretical_mean,
+  empirical_full = full_mean,
+  empirical_post_burn_in = post_burn_in_mean
+)
+```

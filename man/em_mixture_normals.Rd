@@ -10,7 +10,7 @@ em_mixture_normals(
   mu1_init = quantile(y, probs = 0.25),
   mu2_init = quantile(y, probs = 0.75),
   max_iter = 200,
-  tol = 1e-10,
+  tol = 1e-08,
   sigma1 = 1,
   sigma2 = 0.8
 )
