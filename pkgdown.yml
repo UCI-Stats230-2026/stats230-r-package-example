@@ -6,7 +6,8 @@ articles:
   homework2: homework2.html
   homework3: homework3.html
   homework4: homework4.html
-last_built: 2026-03-04T17:52Z
+  homework5: homework5.html
+last_built: 2026-03-10T21:24Z
 urls:
   reference: https://uci-stats230-2026.github.io/stats230-r-package-example/reference
   article: https://uci-stats230-2026.github.io/stats230-r-package-example/articles

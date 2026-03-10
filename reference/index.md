@@ -1,5 +1,12 @@
 # Package index
 
+## Homework 5, Monte Carlo and Markov Chains
+
+- [`montecarlo_moments()`](https://uci-stats230-2026.github.io/stats230-r-package-example/reference/montecarlo_moments.md)
+  : Monte Carlo Estimation of Moments
+- [`wright_fisher_path()`](https://uci-stats230-2026.github.io/stats230-r-package-example/reference/wright_fisher_path.md)
+  : Wright-Fisher Model Path Simulation
+
 ## Homework 4, EM and HMMs
 
 - [`em_mixture_normals()`](https://uci-stats230-2026.github.io/stats230-r-package-example/reference/em_mixture_normals.md)

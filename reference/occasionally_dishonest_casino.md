@@ -14,8 +14,8 @@ specified transition probabilities.
 occasionally_dishonest_casino(
   n_obs = 100,
   initial_dist = c(0.5, 0.5),
-  p_fair_to_loaded = 0.05,
-  p_loaded_to_fair = 0.1,
+  p_fair_to_loaded = 0.02,
+  p_loaded_to_fair = 0.05,
   loaded_probs = c(0.1, 0.1, 0.5, 0.1, 0.1, 0.1)
 )
 ```
@@ -47,7 +47,7 @@ occasionally_dishonest_casino(
 
   Numeric vector of length 6. The probabilities of rolling each face
   (1-6) when in the "Loaded" state. Must sum to 1. Default is c(0.1,
-  0.1, 0.1, 0.1, 0.1, 0.5) (biased towards rolling a 6).
+  0.1, 0.5, 0.1, 0.1, 0.1) (biased towards rolling a 3).
 
 ## Value
 

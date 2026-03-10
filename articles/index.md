@@ -10,3 +10,5 @@
   Regression](https://uci-stats230-2026.github.io/stats230-r-package-example/articles/homework3.md):
 - [Homework 4: EM and
   HMMs](https://uci-stats230-2026.github.io/stats230-r-package-example/articles/homework4.md):
+- [Homework 5: Monte Carlo and Markov
+  Chains](https://uci-stats230-2026.github.io/stats230-r-package-example/articles/homework5.md):

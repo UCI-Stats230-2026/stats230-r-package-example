@@ -41,14 +41,6 @@ forward_backward_casino(
 
 A list with:
 
-- alpha:
-
-  T x 2 matrix of forward messages. Row t is alpha_t(1:2).
-
-- beta:
-
-  T x 2 matrix of backward messages. Row t is beta_t(1:2).
-
 - gamma:
 
   T x 2 matrix of smoothed state probabilities P(x_t=i \| y\_{1:T}).
